@@ -7,9 +7,11 @@ import time
 import pyautogui as pyg
 import numpy as np
 import pandas as pd
+import main
 
-def join_zoom(){
-    joinButton = driver.find_element_by_xpath('//*[@id="studentViconList"]/tbody/tr[6]/td[12]/div/a')
+def join_zoom(xpath):
+    driver = main.login()
+    joinButton = driver.find_element_by_xpath(xpath)
     joinButton.click()
 
     print("Parent window title: " + driver.title)
@@ -36,4 +38,3 @@ def join_zoom(){
     driver.quit()
 
     # driver.quit()
-}

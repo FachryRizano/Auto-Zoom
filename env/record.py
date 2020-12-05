@@ -20,8 +20,11 @@ def record_schedule():
     rows = len(driver.find_elements_by_xpath('//*[@id="studentViconList"]/tbody/tr'))
     header = driver.find_element_by_xpath('//*[@id="studentViconList"]/thead/tr')
     matrix = np.array(container).reshape((rows-2),12)
+    for i in range(0,(rows-2)):
+        matrix[i][11] = '//*[@id="studentViconList"]/tbody/tr['+ str((i+3)) +']/td[12]/div/a'
     df = pd.DataFrame(data=matrix,columns=['DATE','TIME','CLASS','ROOM','CAMPUS','DELIVERY MODE','COURSE','WEEK','SESSION','MEETING ID','MEETING PASSWORD','VICON'])
     df.to_csv(r'C:\Users\Asus\Desktop\auto-login\schedule_record.csv')
+    print("record has done")
 
 record_schedule()
 

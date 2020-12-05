@@ -9,14 +9,14 @@ chrome_driver=r"C:\Users\Asus\Desktop\auto-login\chromedriver.exe"
 #chrome's webdriver location, this is an exe file
 
 # untuk ngehide chrome driver sehingga browser tidak kelihatan ketika running
-options = webdriver.ChromeOptions()
-options.add_argument('headless')
-options.add_argument('window-size=1920x1080')
-options.add_argument("disable-gpu")
-
+# options = webdriver.ChromeOptions()
+# options.add_argument('headless')
+# options.add_argument('window-size=1920x1080')
+# options.add_argument("disable-gpu")
+# driver = webdriver.Chrome(chrome_driver,chrome_options=options)
 
 def login():
-    driver = webdriver.Chrome(chrome_driver,chrome_options=options)
+    driver = webdriver.Chrome(chrome_driver)
     #Load driver
     driver.maximize_window()
     time.sleep(2)
