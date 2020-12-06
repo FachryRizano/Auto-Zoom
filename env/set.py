@@ -1,21 +1,26 @@
 import pandas as pd
 import numpy as np
-import schedule as s
+from apscheduler.schedulers.background import BackgroundScheduler
 import join
+import datetime
 
-def job(xpath):
+sched = BackgroundScheduler()
+sched.start()
+
+def join(xpath):
     print("Start join zoom")
     join.join_zoom(xpath)
     print("DONE")
 
 
 df = pd.read_csv("../schedule_record.csv",index_col=0)
-df['TIME'] = df['TIME'].astype(str).str[0:9]
+df['TIME'] = df['TIME'].astype(str).str[0:5]
 df['DATE AND TIME']= df['DATE'] + ' ' + df['TIME']
-df.drop(['DATE','TIME'],axis=1,inplace=True) 
 df['DATE AND TIME'] = pd.to_datetime(df['DATE AND TIME'],infer_datetime_format=True)
 df = df[['DATE AND TIME','VICON']]
+# print(df['DATE AND TIME'].dtypes)
 # print(df['VICON'][1])
 
+
 #time
-s.every().day.at("15:29").do(job(df["VICON"][1]))
+sched.add_date_job(lambda:join(df['VICON'][1]),date=datetime.datetime.now())

@@ -1,8 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait    
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
 import time
 import pyautogui as pyg
 import numpy as np
@@ -35,6 +31,5 @@ def join_zoom(xpath):
     pyg.click(750,362)
     time.sleep(5)
     pyg.click(840,279)
-    driver.quit()
-
     # driver.quit()
+
