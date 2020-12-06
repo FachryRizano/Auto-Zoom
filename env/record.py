@@ -11,7 +11,7 @@ import main
 
 def record_schedule():
     container=[]
-    driver = main.login()
+    driver = main.login(True)
     # mengambil table data di web
     table = WebDriverWait(driver, 8).until(lambda driver: driver.find_elements_by_css_selector("#studentViconList tr td"))
     for tr in table:
