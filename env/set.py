@@ -10,7 +10,7 @@ import pandas as pd
 import main
 import record
 
-schedule.every().day.at("00:00").do(record.record_schedule())
+schedule.every().day.at("22:01").do(record.record_schedule())
 
 def join(xpath):
     print("Start join zoom")
@@ -60,3 +60,5 @@ for i,date in enumerate(df['DATE']):
 while True:
     schedule.run_pending()
     time.sleep(1)
+
+    

@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 import time
 #Import selenium
-chrome_driver=r"C:\Users\Asus\Desktop\auto-login\chromedriver.exe"
+chrome_driver=r"C:\\Users\\Asus\\Desktop\\auto-login\\chromedriver.exe"
 #chrome's webdriver location, this is an exe file
 
 # untuk ngehide chrome driver sehingga browser tidak kelihatan ketika running
@@ -27,11 +27,11 @@ def login(flag):
 
     # Memasukkan username
     username = driver.find_element_by_id("Username")
-    username.send_keys("husein.shahab")
+    username.send_keys("")
 
     # Memasukkan password
     password = driver.find_element_by_id("Password")
-    password.send_keys("b!Nu$25041999")
+    password.send_keys("")
 
     # klik tombol submit
     submit = driver.find_element_by_id("btnSubmit")
